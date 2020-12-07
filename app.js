@@ -33,7 +33,7 @@ const app = express();
 app.use(
   cors({
     credentials: true,
-    origin: [process.env.PUBLIC_DOMAIN, 'https://sand-grain.herokuapp.com'],
+    origin: [process.env.PUBLIC_DOMAIN, 'https://find-me-out.herokuapp.com'],
   })
 );
 // app.use((req, res, next) => {
