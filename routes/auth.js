@@ -21,13 +21,13 @@ router.post(
     // revisa que se hayan completado los valores de username y password usando la función helper
     validationLoggin(),
     async (req, res, next) => {
-        const { username, email, password } = req.body;
+        const { name, email, password } = req.body;
 
         try {
             // chequea si el username ya existe en la BD
-            const usernameExists = await User.findOne({ email }, "email");
+            const nameExists = await User.findOne({ email }, "email");
             // si el usuario ya existe, pasa el error a middleware error usando next()
-            if (usernameExists) return next(createError(400));
+            if (nameExists) return next(createError(400));
             else {
                 // en caso contratio, si el usuario no existe, hace hash del password y crea un nuevo usuario en la BD
                 const salt = bcrypt.genSaltSync(saltRounds);
