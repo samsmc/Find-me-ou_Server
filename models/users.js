@@ -12,8 +12,6 @@ const userSchema = new Schema(
     technologies: String,
     uploadCV: String,
     channels: String,
-    createdEvents: [{ type: Schema.Types.ObjectId, ref: "Events" }],
-    joinedEvents: [{ type: Schema.Types.ObjectId, ref: "Events" }],
   },
   {
     timestamps: {

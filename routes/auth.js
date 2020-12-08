@@ -3,7 +3,7 @@ const router = express.Router();
 const createError = require("http-errors");
 const bcrypt = require("bcrypt");
 const saltRounds = 10;
-const User = require("../models/user");
+const User = require("../models/users");
 
 // HELPER FUNCTIONS
 const {
@@ -32,7 +32,7 @@ router.post(
                 // en caso contratio, si el usuario no existe, hace hash del password y crea un nuevo usuario en la BD
                 const salt = bcrypt.genSaltSync(saltRounds);
                 const hashPass = bcrypt.hashSync(password, salt);
-                const newUser = await User.create({ username, password: hashPass, email });
+                const newUser = await User.create({ name, password: hashPass, email });
                 // luego asignamos el nuevo documento user a req.session.currentUser y luego enviamos la respuesta en json
                 req.session.currentUser = newUser;
                 res
