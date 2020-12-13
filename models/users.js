@@ -11,14 +11,19 @@ const userSchema = new Schema(
     position: String,
     technologies: String,
     uploadCV: String,
-    channels: {
-        linkedin: Boolean,
-        github: Boolean,
-        stack: Boolean,
-        medium: Boolean,
-        reddit: Boolean,
-        codePen: Boolean,
-    }
+    linkedin: String,
+    github: String,
+    stack: String,
+    medium: String,
+    reddit: String,
+    codePen: String,
+
+    /* linkedin: {url: String, check: Boolean},
+    github: {url: String, check: Boolean},
+    stack: {url: String, check: Boolean},
+    medium: {url: String, check: Boolean},
+    reddit: {url: String, check: Boolean},
+    codePen: {url: String, check: Boolean}, */
   },
   {
     timestamps: {

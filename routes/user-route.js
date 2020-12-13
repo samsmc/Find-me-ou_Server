@@ -28,7 +28,19 @@ router.post("/add-user", isLoggedIn(), (req, res, next) => {
     position: req.body.position,
     technologies: req.body.technologies,
     uploadCV: req.body.uploadCV,
-    channels: req.body.channels,
+    linkedin: req.body.linkedin,
+    github: req.body.github,
+    stack: req.body.stack,
+    medium: req.body.medium,
+    reddit: req.body.reddit,
+    codePen: req.body.codePen,
+
+    /* linkedin: { url: req.body.linkedinUrl, check: req.body.linkedin },
+    github: { url: req.body.githubUrl, check: req.body.github },
+    stack: { url: req.body.stackUrl, check: req.body.stack },
+    medium: { url: req.body.mediumUrl, check: req.body.medium },
+    reddit: { url: req.body.redditUrl, check: req.body.reddit },
+    codePen: { url: req.body.codePenUrl, check: req.body.codePen }, */
   })
     .then((response) => {
       res.json(response);
@@ -42,11 +54,42 @@ router.post("/add-user", isLoggedIn(), (req, res, next) => {
 router.put("/update-user/:id", async (req, res, next) => {
   let idUser = req.params.id;
   console.log(req.body);
-  const { photo, name, position, technologies, channels } = req.body;
+  const {
+    photo,
+    name,
+    position,
+    technologies,
+    uploadCV,
+    linkedin,
+    github,
+    stack,
+    medium,
+    reddit,
+    codePen,
+  } = req.body;
   try {
     let updateUser = await User.findByIdAndUpdate(
       idUser,
-      { name, position, technologies, channels, photo },
+      {
+        photo,
+        name,
+        position,
+        technologies,
+        uploadCV,
+        linkedin,
+        github,
+        stack,
+        medium,
+        reddit,
+        codePen,
+
+        /* linkedin: { url: req.body.linkedinUrl, check: req.body.linkedin },
+        github: { url: req.body.githubUrl, check: req.body.github },
+        stack: { url: req.body.stackUrl, check: req.body.stack.check },
+        medium: { url: req.body.mediumUrl, check: req.body.medium.check },
+        reddit: { url: req.body.redditUrl, check: req.body.reddit.check },
+        codePen: { url: req.body.codePenUrl, check: req.body.codePen.check }, */
+      },
       { new: true }
     );
     res.status(200).json(updateUser);
