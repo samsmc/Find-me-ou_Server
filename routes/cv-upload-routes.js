@@ -4,7 +4,7 @@ const uploader = require("../config/cloudinary");
 
 
 
-router.post("/upload" ,uploader.single("photo"), (req, res ,next ) => {
+router.post("/uploadCv",uploader.single("uploadCV"), (req, res ,next ) => {
    if (!req.file) {
        next(new Error ("No file Uploaded!"));
        return

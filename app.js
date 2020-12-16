@@ -15,6 +15,7 @@ const auth = require("./routes/auth");
 const usersRouter = require("./routes/user-route");
 const indexRouter = require("./routes/index");
 const uploadRouter = require("./routes/file-upload-routes");
+const uploadRouterCv = require("./routes/cv-upload-routes");
 
 // MONGOOSE CONNECTION
 mongoose
@@ -36,13 +37,6 @@ app.use(
     origin: [process.env.PUBLIC_DOMAIN, 'https://find-me-out.herokuapp.com'],
   })
 );
-// app.use((req, res, next) => {
-//   res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
-//   res.setHeader('Access-Control-Allow-Methods', 'GET, PUT, POST, OPTIONS, DELETE');
-//   res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
-//   res.setHeader('Access-Control-Allow-Credentials', true);
-//   next();
-// });
 
 // SESSION MIDDLEWARE
 app.use(
@@ -74,6 +68,7 @@ app.use("/user", usersRouter);
 app.use("/", indexRouter);
 app.use("/auth", auth);
 app.use("/", uploadRouter);
+app.use("/", uploadRouterCv);
 
 // ROUTE FOR SERVING REACT APP (index.html)
 app.use((req, res) => {
