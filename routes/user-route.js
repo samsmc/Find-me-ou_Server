@@ -59,6 +59,9 @@ router.put("/update-user/:id", async (req, res, next) => {
     medium,
     reddit,
     codePen,
+    project1,
+    project2,
+    project3,
   } = req.body;
   try {
     let updateUser = await User.findByIdAndUpdate(
@@ -75,6 +78,9 @@ router.put("/update-user/:id", async (req, res, next) => {
         medium,
         reddit,
         codePen,
+        project1,
+        project2,
+        project3,
       },
       { new: true }
     );

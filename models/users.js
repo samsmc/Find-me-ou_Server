@@ -17,13 +17,9 @@ const userSchema = new Schema(
     medium: String,
     reddit: String,
     codePen: String,
-
-    /* linkedin: {url: String, check: Boolean},
-    github: {url: String, check: Boolean},
-    stack: {url: String, check: Boolean},
-    medium: {url: String, check: Boolean},
-    reddit: {url: String, check: Boolean},
-    codePen: {url: String, check: Boolean}, */
+    project1: String,
+    project2: String,
+    project3: String,
   },
   {
     timestamps: {
