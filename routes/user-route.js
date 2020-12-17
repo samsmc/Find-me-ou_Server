@@ -122,6 +122,15 @@ router.delete('/delete/:id', isLoggedIn(), (req, res, next) => {
       })
 });
 
-
+// GET route => to get all the events
+router.get('/', (req, res, next) => {
+  User.find().populate('user')
+      .then(allUsers => {
+          res.json(allUsers);
+      })
+      .catch(err => {
+          res.json(err);
+      })
+});
 
 module.exports = router;
