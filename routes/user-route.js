@@ -19,30 +19,6 @@ router.get("/userCreated/:id", isLoggedIn(), async (req, res, next) => {
   }
 });
 
-// POST route => to create a new user
-/* router.post("/add-user", isLoggedIn(), (req, res, next) => {
-  User.create({
-    photo: req.body.photo,
-    name: req.body.name,
-    email: req.body.email,
-    position: req.body.position,
-    technologies: req.body.technologies,
-    uploadCV: req.body.uploadCV,
-    linkedin: req.body.linkedin,
-    github: req.body.github,
-    stack: req.body.stack,
-    medium: req.body.medium,
-    reddit: req.body.reddit,
-    codePen: req.body.codePen,
-  })
-    .then((response) => {
-      res.json(response);
-    })
-    .catch((err) => {
-      res.json(err);
-    });
-}); */
-
 // UPDATE USER
 router.put("/update-user/:id", async (req, res, next) => {
   let idUser = req.params.id;
